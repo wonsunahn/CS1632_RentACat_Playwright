@@ -160,8 +160,6 @@ Submit your report to GradeScope at the **Deliverable 3 Report** link.
 * Defect reports - 15%
 * GitHub autograder results - 85%
 
-Please review grading\_rubric.txt for details.
-
 # GradeScope Feedback
 
 The GradeScope autograder works in 2 phases:
