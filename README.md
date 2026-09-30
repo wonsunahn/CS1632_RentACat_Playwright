@@ -5,21 +5,19 @@
     + [Test fixture](#test-fixture)
     + [Setting cookie values](#setting-cookie-values)
     + [Mind your locator strings](#mind-your-locator-strings)
-    + [Race conditions hit again](#race-conditions-hit-again)
+    + [Waiting for events](#waiting-for-events)
   * [Task 2: Find three defects and write test cases for them](#task-2-find-three-defects-and-write-test-cases-for-them)
 - [Submission](#submission)
-  * [GitHub submission](#github-submission)
-  * [Report submission](#report-submission)
-- [Grading](#grading)
 - [GradeScope Feedback](#gradescope-feedback)
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Spring Semester 2026
+Fall Semester 2026
 
-* DUE: March 3 (Tuesday), 2026 before start of class
+* DUE: October 7 (Wednesday), 2026 before start of class
 
-**GitHub Classroom Link:** TBD
+Please use the link posted on the Teams Exercise 4 channel to accept this
+exercise and create your repository.
 
 ## Description
 
@@ -39,10 +37,10 @@ The web app is located here: https://cs1632.appspot.com/
    npm install -D @playwright/test
    ```
 
-   Then install the chromium, firefox, and webkit browsers as our test targets:
+   Then install the chromium browser as our test target:
 
    ```
-   npx -y playwright install --with-deps chromium firefox webkit
+   npx -y playwright install --with-deps chromium
    ```
 
 ## Task 1: Write test cases
@@ -95,12 +93,13 @@ https://www.w3schools.com/js/js_cookies.asp
 
 ### Mind your locator strings
 
-Just like we learned in Exercise 3, please use locators appropriate to
-the test step.  Sometimes, depending on what locator you use, you may
-not be able to detect bugs in the cs1632-buggier website (mentioned in the
-[GradeScope Feedback](#gradescope-feedback) section).
+Just like we learned in through the example code in
+sample_code/playwright_example, please use locators appropriate to the test
+step.  Sometimes, depending on what locator you use, you may not be able to
+detect bugs in the cs1632-buggier website (mentioned in the [GradeScope
+Feedback](#gradescope-feedback) section).
 
-### Race conditions hit again
+### Waiting for events
 
 For the TEST-8-FEED test case, you will notice a 7 second delay between when
 you hit the "Feed" button and when the cats go "Nom, nom, nom.".  That is
@@ -121,8 +120,9 @@ as we learned so far.
 Each defect report should contain all necessary components including
 REPRODUCTION STEPS, EXPECTED BEHAVIOR, OBSERVED BEHAVIOR, etc. described in
 Exercise 1.  Just like for Exercise 1, please label and assign the issue to
-perform triage.  Then modify the requirements to resolve these defects in an
-issue branch and then merge them in using a pull request to close them.
+perform triage.  Then modify a file (for example requirements.md) to emulate a
+source code change in the issue branch and then merge them in using a pull
+request to close them.
 
 Next, write three additional Playwright test cases that fail and uncover those
 three defects at the end of the typescript file.  Name these test cases in this
@@ -136,33 +136,28 @@ the FUN-FEED-A-CAT requirement, you will name them:
 
 Normally you wouldn't name them this way since there is no separate category of
 tests that are meant to detect defects.  All tests are meant to detect defects!
-This is only for ease of grading on GradeScope.
+This is only for ease of grading on GradeScope.  Since these tests trigger
+defects in he software, they are expected to fail, of course.
 
 # Submission
 
-Each group will do one submissions to GradeScope as usual.  The submission is
-done in two parts: the GitHub Classroom repository and a report.
+Submit your github repository to GradeScope at the **Exercise 4** link.  Once
+you submit, GradeScope will run the autograder to grade you and give feedback.
+If you get deductions, fix your code based on the feedback and resubmit.
+Repeat until you don't get deductions.
 
-## GitHub submission
+Just like for Exercise 1, please add a file [issue_urls.txt](issue_urls.txt) to
+your exercise repository and fill it with three URLs to the three GitHub issues
+, one line per URL.  The URL is the URL of the page when you click on an issue
+in the Issues tab.  You may have to click on the "Closed" link to display
+closed issues.  The URL is formatted as follows:
 
-Submit your github repository to GradeScope at the **Deliverable 3 GitHub**
-link.  Once you submit, GradeScope will run the autograder to grade you and
-give feedback.  If you get deductions, fix your code based on the feedback and
-resubmit.  Repeat until you don't get deductions.
-
-## Report submission
-
-Submit your report to GradeScope at the **Deliverable 3 Report** link.  
-
-# Grading
-
-* Reflection - 5%
-* Defect reports - 15%
-* GitHub autograder results - 85%
-
+```
+https://github.com/{organization}/{repository}/issues/{issue number}
+```
 # GradeScope Feedback
 
-The GradeScope autograder works in 2 phases:
+The GradeScope autograder works in 3 phases:
 
 1. **rentacat test on https://cs1632.appspot.com/**: This tests your
    rentacat.spec.ts script on the rentacat website as originally intended.  All
@@ -174,9 +169,12 @@ this, all your URLs are changed to the buggier website.  Now all tests should
 fail.  You can test this yourself easily by changing the base URL of your test
 cases.
 
+1. AI feedback on your defect reports.
+
 If you get deductions, both websites are available to you, so try them out
 yourself.
 
 # Resources
 
-Please refer to Exercise 1 for links to tutorials and references.
+Please refer to sample_code/playwright_example/README.md for links to tutorials
+and references.
